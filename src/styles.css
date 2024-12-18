@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  --primary: #00FFA3;
+  --primary-dark: #008F6B;
+  --bg-dark: #C1E1C1;
+  --bg-darker: #B1D1B1;
+  --bg-lightest: #D1F1D1;
+  --text-primary: #2A4D2A;
+  --text-primary-50: rgba(42, 77, 42, 0.5);
+  --accent-pink: #FF69B4;
+  --accent-blue: #00D1FF;
+  --border-color: #90B090;
+}
+
+body {
+  @apply bg-[var(--bg-darker)] text-[var(--text-primary)];
+  font-family: 'Press Start 2P', cursive;
+}
+
+[data-tauri-drag-region] {
+  cursor: move;
+}
+
+.no-drag {
+  cursor: default;
+}
+
+.title-bar {
+  @apply bg-[var(--bg-dark)] border-b border-[var(--border-color)];
+  height: 40px;
+}
+
+.nav-button {
+  @apply px-2 py-1 text-[var(--text-primary)] transition-colors text-sm;
+  cursor: pointer;
+}
+
+.nav-button:hover {
+  @apply text-[var(--primary-dark)];
+}
+
+.window-button {
+  @apply px-4 transition-colors;
+  cursor: pointer;
+}
+
+.window-button:hover {
+  background-color: rgba(42, 77, 42, 0.1);
+}
+
+.close-button:hover {
+  @apply text-[var(--accent-pink)] bg-red-100;
+}
+
+.tab-bar {
+  @apply bg-[var(--bg-lightest)] border-b border-[var(--border-color)];
+  height: 32px;
+}
+
+.tab {
+  @apply px-3 py-1 flex items-center gap-2 text-xs;
+  @apply border-r border-[var(--border-color)];
+  @apply transition-colors;
+  background-color: var(--bg-dark);
+  height: 32px;
+  cursor: pointer;
+  border-radius: 8px 8px 0 0;
+  margin: 0 1px;
+  margin-top: 4px;
+}
+
+.tab:hover {
+  background-color: var(--bg-lightest);
+}
+
+.tab.active {
+  background-color: var(--bg-lightest);
+  border-bottom: none;
+}
+
+.new-tab-button {
+  @apply px-3 text-[var(--text-primary)] transition-colors h-full;
+  cursor: pointer;
+}
+
+.new-tab-button:hover {
+  @apply text-[var(--primary-dark)];
+  background-color: rgba(42, 77, 42, 0.1);
+}
+
+.search-bar {
+  @apply bg-[var(--bg-lightest)] border border-[var(--border-color)] rounded-full px-3 py-1 w-full;
+  @apply text-[var(--text-primary)];
+  height: 28px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar::placeholder {
+  color: var(--text-primary-50);
+}
+
+.search-bar:focus {
+  @apply outline-none border-[var(--primary-dark)];
+}
+
+.pixel-corners {
+  border-radius: 20px;
+}
